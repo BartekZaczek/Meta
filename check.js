@@ -1,4 +1,4 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire, api } from 'lwc';
 import getMeta from '@salesforce/apex/ShowMeta.getMeta';
 import start from '@salesforce/apex/StartBatch.start';
 export default class Check extends LightningElement {
@@ -12,6 +12,7 @@ export default class Check extends LightningElement {
     checbox2 = false
     checbox3 = false
     checbox4 = false
+    
 
     
     disabled = true
@@ -68,15 +69,17 @@ export default class Check extends LightningElement {
         if(this.value == 'Question2'){
             if(this.checbox2 == false){
                 this.checbox2 = true
+                console.log(2)
                 
             }else{
                 this.checbox2 = false
             }
             this.checkIftrue()
         }
-        if(this.value == 'Question3'){
+        if(this.value == 'da'){
             if(this.checbox3 == false){
                 this.checbox3 = true
+                console.log(3)
                 
             }else{
                 this.checbox3 = false
@@ -86,9 +89,19 @@ export default class Check extends LightningElement {
         if(this.value == 'question4'){
             if(this.checbox4 == false){
                 this.checbox4 = true
+                console.log(4)
                
             }else{
                 this.checbox4 = false
+            }
+            this.checkIftrue()
+        }if(this.value == 'Question5'){
+            if(this.checbox3 == false){
+                this.checbox3 = true
+                console.log(3)
+                
+            }else{
+                this.checbox3 = false
             }
             this.checkIftrue()
         }
