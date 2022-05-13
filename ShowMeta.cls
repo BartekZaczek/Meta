@@ -3,11 +3,11 @@ public class ShowMeta {
     public static List<MyCustomDataWrapper> getMeta(){
         List<MyCustomDataWrapper> wrapperList = new List<MyCustomDataWrapper>();
 
-        MyCustomData__mdt[] intt = [SELECT order__c, label FROM MyCustomData__mdt];
+        Permission_Upload_Checklist__mdt[] intt = [SELECT order__c, label, Name__c FROM Permission_Upload_Checklist__mdt];
 
-        for (MyCustomData__mdt cData : intt) {
+        for (Permission_Upload_Checklist__mdt cData : intt) {
             MyCustomDataWrapper w = new MyCustomDataWrapper();
-            w.label = cData.label;
+            w.label = cData.Name__c;
             w.order = (Integer)cData.order__c;
             wrapperList.add(w);
         }

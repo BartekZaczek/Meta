@@ -8,11 +8,7 @@ export default class Check extends LightningElement {
     
     success
 
-    checbox1 = false
-    checbox2 = false
-    checbox3 = false
-    checbox4 = false
-    
+    inputsCheck = new Array()
 
     
     disabled = true
@@ -44,68 +40,27 @@ export default class Check extends LightningElement {
             this.showtext = false
         }
      }
+
      checkIftrue(){
-        if(this.checbox1 == true && this.checbox2 == true && this.checbox3 == true && this.checbox4 == true){
-            console.log('every true');
+        const inputs = this.template.querySelectorAll('lightning-input')
+        if(this.inputsCheck.length == inputs.length){
             this.disabled = false
 
         }else{
-            console.log('not every true');
+            this.disabled = true
         }
     } 
     
-    c(event){
-        console.log(this.template.querySelectorAll('lightning-input'));
+    check(event){
+        
         this.value = event.target.value;
-        if(this.value == 'Question1'){
-            if(this.checbox1 == false){
-                this.checbox1 = true
-                console.log(1)
-                this.checkIftrue()
-            }else{
-                this.checbox1 = false
-            }
-        }
-        if(this.value == 'Question2'){
-            if(this.checbox2 == false){
-                this.checbox2 = true
-                console.log(2)
-                
-            }else{
-                this.checbox2 = false
-            }
+        if(this.inputsCheck.includes(this.value)){
+            var i = this.inputsCheck.indexOf(this.value)
+            this.inputsCheck.splice(i, 1);
+        }else{
+            this.inputsCheck.push(this.value)
             this.checkIftrue()
         }
-        if(this.value == 'da'){
-            if(this.checbox3 == false){
-                this.checbox3 = true
-                console.log(3)
-                
-            }else{
-                this.checbox3 = false
-            }
-            this.checkIftrue()
-        }
-        if(this.value == 'question4'){
-            if(this.checbox4 == false){
-                this.checbox4 = true
-                console.log(4)
-               
-            }else{
-                this.checbox4 = false
-            }
-            this.checkIftrue()
-        }if(this.value == 'Question5'){
-            if(this.checbox3 == false){
-                this.checbox3 = true
-                console.log(3)
-                
-            }else{
-                this.checbox3 = false
-            }
-            this.checkIftrue()
-        }
-
         
      }
 }

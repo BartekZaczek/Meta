@@ -10,7 +10,7 @@
         </div>
         <div if:true={showtext} class="slds-m-top_small slds-m-bottom_medium slds-m-left_x-small"  >
             <template for:each={checkboxes} for:item="checkbox" >
-                <lightning-input class="slds-m-bottom_small check" key={checkbox.label} type="checkbox" value={checkbox.label} label={checkbox.label} onchange={c}></lightning-input> 
+                <lightning-input class="slds-m-bottom_small check" key={checkbox.label} type="checkbox" value={checkbox.label} label={checkbox.label} onchange={check}></lightning-input> 
             </template>
             <lightning-button variant="neutral" label="Start Batch" class="slds-m-left_x-small" disabled={disabled} onclick={startBatch}></lightning-button>
         </div>
